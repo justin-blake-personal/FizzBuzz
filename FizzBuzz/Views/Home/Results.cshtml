@@ -1,0 +1,64 @@
+﻿@model IEnumerable<FizzBuzz.Models.FizzBuzzResult>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Results</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Input
+            </th>
+            <th>
+                Result
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            if (!item.IsValid)
+            {
+                <tr>
+                    <td>
+                        @(item.Input == null ? "<empty>" : item.Input)
+                    </td>
+                    <td>
+                        Invalid Item
+                    </td>
+                </tr>
+            }
+            else if (item.IsFizzBuzzMultiple)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Input)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Result)
+                    </td>
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    <td rowspan="2">
+                        @(item.Input)
+                    </td>
+                    <td>
+                        Divided @(item.Input) by 3
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Divided @(item.Input) by 5
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

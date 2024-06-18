@@ -1,0 +1,10 @@
+﻿<h1>Fizz Buzz</h1>
+<p>Enter an array of values.  Click Add Input for another value.</p>
+
+<form method="post" asp-controller="Home" asp-action="FizzBuzz">
+    <div id="inputs" class="mb-3">
+        <input type="text" name="values" placeholder="Enter a value" class="d-block mb-1" />
+    </div>
+    <button type="button" class="btn btn-primary" onclick="addInput();">Add Input</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
